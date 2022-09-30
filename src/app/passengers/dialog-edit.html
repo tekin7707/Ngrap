@@ -1,0 +1,32 @@
+<style>
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+}
+.mat-dialog-content{
+  margin-top: 1rem;
+}
+</style>
+<mat-toolbar>
+  <span class="example-spacer" style="margin-right:2rem;">Airline id: {{data.id}}</span>
+  <span class="example-spacer">Airline name: {{data.name}}</span>
+</mat-toolbar>
+
+
+<div mat-dialog-content>
+  <p>Passenger count?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Passenger count</mat-label>
+    <input type="number" matInput [(ngModel)]="data.passengercount">
+  </mat-form-field>
+
+  <p>Description</p>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder=""  matInput [(ngModel)]="data.description"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>
